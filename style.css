@@ -1,0 +1,30 @@
+body{
+    padding: 80px;
+}
+.submit{
+    border-radius: 10px;
+    box-shadow: 10px 10px 30px gray;
+    padding: 30px 20px 30px 20px;
+    margin-top: 60px;
+}
+.tran{
+    display: none;
+}
+.row{
+    margin-top: 50px;
+}
+.ln{
+    font-size: 5rem;
+}
+.depo{
+    box-shadow: 10px 10px 30px gray;
+    border-radius: 15px;
+    padding: 50px 30px;
+    margin: 10px 70px;
+}
+.with{
+    margin: 10px 70px;
+    padding: 50px 30px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 30px gray;
+}

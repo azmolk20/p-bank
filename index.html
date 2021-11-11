@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pioneer Bank</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <!-- login section started -->
+    <div class="login">
+    <h1 class="text-center">Welcome to Pioneer Bank</h1>
+    <div class="submit">
+        <h4 class="pt-2 pb-4">Login</h4>
+        <input type="email" class="form-control" placeholder="Enter your E-mail:"><br>
+        <input type="password" class="form-control" placeholder="Enter your password:"><br>
+        <button id="bt" class="btn btn-success">Login</button>
+    </div>
+    </div>
+    <!-- login section ends here  -->
+    <!-- transition section starts here  -->
+    <div class="tran">
+        <div class="row text-white">
+            <div class="col-md-4 my-3" >
+                <div style="background-color: slateblue;padding: 30px 20px; border-radius: 15px;">
+                <h4>Deposite</h5>
+                <h2>$ <span id="cdp">00</span></h3>
+                </div>
+            </div>
+            <div class="col-md-4 my-3">
+                <div style="background-color: lightsalmon;padding: 30px 20px; border-radius: 15px;">
+                <h4>Withdraw</h5>
+                <h2>$ <span id="withamount">00</span></h3>
+                </div>
+            </div>
+            <div class="col-md-4 my-3">
+                <div class="ln" style="background-color: orange; padding: 30px 20px; border-radius: 15px;">
+                <h4>Balance</h5>
+                <h2>$ <span id="cb">1240</span></h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="depo">
+                <h2>Deposite</h2><br>
+                <input id="dpamount" type="text" class="form-control" placeholder="$ Enter your amount:"><br>
+                <button id="adddp" class="btn btn-success">Deposite</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="with">            
+                <h2>Withdraw</h2><br>
+                <input type="text" id="withdrawAmount" class="form-control" placeholder="$ Enter your amount:"><br>
+                <button id="addWithdraw" class="btn btn-success">Withdraw</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const btn = document.getElementById("bt");
+        btn.addEventListener("click", function(){
+        const sub = document.querySelector('.login');
+        sub.style.display='none';
+        const tr = document.querySelector('.tran');
+        tr.style.display='block';
+        })
+        // deposite click 
+        const dpbtn = document.getElementById('adddp');
+        dpbtn.addEventListener("click", function(){
+            const dpAmount = document.getElementById('dpamount').value;
+            const dpNumber = parseFloat(dpAmount);
+            
+            const cdp = document.getElementById('cdp').innerText;
+            const cdpn = parseFloat(cdp);
+            const totaldp = cdpn+ dpNumber; 
+            document.getElementById('cdp').innerText=totaldp;
+
+            const cb = document.getElementById('cb').innerText;
+            const cbn = parseFloat(cb);
+            const totalb = dpNumber+cbn;
+            document.getElementById('cb').innerText=totalb;
+            document.getElementById('dpamount').value="";
+        })
+        const addWithdraw = document.getElementById('addWithdraw');
+        addWithdraw.addEventListener("click", function(){
+            const withdrawAmount = document.getElementById('withdrawAmount').value;
+            const withdrawAmountN = parseFloat(withdrawAmount);
+
+            const withamount = document.getElementById('withamount').innerText;
+            const withamountN = parseFloat(withamount);
+            const totalWith = withamountN+withdrawAmountN;
+            document.getElementById('withamount').innerText=totalWith;
+            document.getElementById('withdrawAmount').value="";
+
+            const balance = document.getElementById('cb').innerText;
+            const balanceN = parseFloat(balance);
+            const balanceO = balanceN - withdrawAmountN;
+            document.getElementById('cb').innerText=balanceO;
+        })
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
